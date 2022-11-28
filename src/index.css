@@ -1,0 +1,233 @@
+body {
+  background-color: black;
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+  color: whitesmoke;
+}
+
+h1 {
+  position: absolute;
+  font-size: 100px;
+  border: 10px solid rgb(255, 255, 255);
+  padding: 20px;
+  width: fit-content;
+  height: fit-content;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 475px auto 30px auto;
+}
+
+#navBar {
+  padding: 20px;
+  width: 900px;
+  margin: auto;
+  border: 10px solid azure;
+}
+
+a {
+  font-size: 40px;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+  color: azure;
+}
+
+h2 {
+  font-size: 60px;
+  margin: 10px;
+}
+
+h3 {
+  font-size: 50px;
+  margin: 10px;
+}
+
+.logobox {
+  margin: auto;
+  padding: 20px;
+  width: 600px;
+  height: 600px;
+}
+
+.logobox img {
+  width: 100%;
+  height: auto;
+}
+
+.houses {
+  display: inline-block;
+  font-size: 30px;
+  margin: 10px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.houseDetails {
+  margin: 150px auto auto auto;
+  width: 900px;
+  font-size: 25px;
+}
+
+#slytherin {
+  color: rgb(11, 172, 84);
+  border: 5px solid;
+  border-color: rgb(11, 172, 84);
+}
+
+#hufflepuff {
+  color: rgb(205, 163, 26);
+  border: 5px solid;
+  border-color: rgb(205, 163, 26);
+}
+
+#ravenclaw {
+  color: rgb(5, 34, 225);
+  border: 5px solid;
+  border-color: rgb(5, 34, 225);
+}
+
+#gryffindor {
+  color: rgb(231, 30, 30);
+  border: 5px solid;
+  border-color: rgb(231, 30, 30);
+}
+
+input {
+  margin-top: 20px;
+  font-size: 30px;
+  padding: 10px;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+button {
+  font-size: 30px;
+  font-family: "Cinzel Decorative", cursive;
+  background-color: black;
+  cursor: pointer;
+  color: azure;
+  padding: 10px;
+  border: 2px solid aliceblue;
+  margin-top: 20px;
+}
+
+#listofspells {
+  width: 900px;
+  border: 5px solid azure;
+  margin: 20px auto auto auto;
+  height: 750px;
+}
+
+#listofwizards {
+  width: 975px;
+  border: 5px solid azure;
+  margin: 20px auto auto auto;
+  height: fit-content;
+}
+
+.spellName,
+.wizardName {
+  display: inline-block;
+  border: 2px solid azure;
+  padding: 5px;
+  margin: 2px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.spellName:hover {
+  background-color: lightskyblue;
+  transition: 0.2s;
+}
+
+ul {
+  padding: 10px;
+}
+
+h4 {
+  font-size: 25px;
+  margin: auto;
+}
+
+#descriptionOfSpells {
+  padding: 10px;
+  margin: auto;
+  height: 185px;
+}
+
+p {
+  font-size: 20px;
+  margin: auto;
+  padding: 10px;
+}
+
+.wizardimage {
+  border: 2px solid azure;
+  border-radius: 50%;
+  height: 120px;
+  width: auto;
+  margin: 5px;
+}
+
+.wizardimageprofile {
+  height: 350px;
+  width: auto;
+  margin: 10px;
+  border: 2px solid azure;
+  padding: 10px;
+}
+
+#wizardrow {
+  display: inline-block;
+  margin: 10px;
+}
+
+.modaloverlay {
+  border: 5px solid gray;
+  width: 900px;
+  height: 800px;
+  margin: 50px auto;
+  background-color: black;
+  font-size: 20px;
+}
+
+table {
+  border: 1px solid azure;
+  margin: auto;
+}
+
+#modalbutton {
+  border: 2px solid grey;
+  width: 50px;
+  height: 50px;
+  padding: auto;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: whitesmoke;
+  color: black;
+  position: absolute;
+  top: 50px;
+  left: 525px;
+}
+
+.enrollinput {
+  margin: 20px;
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+}
+
+option {
+  font-size: 30px;
+  font-family: "Cinzel Decorative", cursive;
+}
+.enrolltable {
+  margin-top: 50px;
+  font-size: 30px;
+  padding: 20px;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+label {
+  font-size: 25px;
+}

@@ -230,4 +230,11 @@ option {
 
 label {
   font-size: 25px;
+  margin: 10px;
+}
+
+#enrolledimage {
+  margin: 20px;
+  width: 45%;
+  height: 400px;
 }

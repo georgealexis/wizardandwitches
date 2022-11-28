@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 function Spells() {
   const [spells, setSpells] = useState([]);
   const [spellDetails, setSpellDetails] = useState([]);
-  const [searchingSpellName, setSearchingSpellName] = useState("");
+  // const [searchingSpellName, setSearchingSpellName] = useState("");
 
   useEffect(() => {
     fetch("https://hp-api.herokuapp.com/api/spells")
@@ -22,8 +22,14 @@ function Spells() {
 
   const searchSpell = (event) => {
     event.preventDefault();
-    setSearchingSpellName(event.target[0].value);
     console.log(event.target[0].value);
+    console.log(spells);
+
+    let filteredSpell = spells.filter((spell) => {
+      return spell.name.toLowerCase() === event.target[0].value.toLowerCase();
+    });
+    console.log(filteredSpell);
+    setSpellDetails(filteredSpell[0]);
   };
 
   return (

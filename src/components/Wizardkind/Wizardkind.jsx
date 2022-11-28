@@ -48,19 +48,13 @@ function Wizardkind() {
       <h2 id="wizards"> Wizardkind: Wizards & Witches </h2>
       <Navbar />
       <label>Gryffindor:</label>
-      <input type="checkbox" onClick={filterWizard} name="Gryffindor"></input>
+      <input type="checkbox" onClick={filterWizard} label="Gryffindor"></input>
       <label>Hufflepuff:</label>
       <input type="checkbox" onClick={filterWizard} name="Hufflepuff"></input>
       <label>Ravenclaw:</label>
       <input type="checkbox" onClick={filterWizard} name="Ravenclaw"></input>
       <label>Slytherin:</label>
       <input type="checkbox" onClick={filterWizard} name="Slytherin"></input>
-      <label>Pure-blood:</label>
-      <input type="checkbox" onClick={filterWizard} name="pure-blood"></input>
-      <label>Half-blood:</label>
-      <input type="checkbox" onClick={filterWizard} name="half-blood"></input>
-      <label>Muggleborn:</label>
-      <input type="checkbox" onClick={filterWizard} name="muggleborn"></input>
       <form onSubmit={searchWizard}>
         <input type="search" placeholder="Searching for ..." name=""></input>
         <button> Search</button>
@@ -92,6 +86,21 @@ function Wizardkind() {
           ))}
         </div>
       </div>
+
+      {}
+
+      <ReactModal
+        className="modaloverlay"
+        isOpen={modalIsOpen}
+        ariaHideApp={false}
+        onRequestClose={() => setModalIsOpen(false)}
+      >
+        <img src="" alt="No Wizard Found"></img>
+        <button id="modalbutton" onClick={showWizardDetailsFalse}>
+          x
+        </button>
+      </ReactModal>
+
       <ReactModal
         className="modaloverlay"
         isOpen={modalIsOpen}
@@ -101,43 +110,43 @@ function Wizardkind() {
         <h3>Profile</h3>
         <img
           className="wizardimageprofile"
-          src={wizardArray.image}
+          src={wizardArray?.image}
           onError={(e) =>
             (e.target.src =
               "https://user-images.githubusercontent.com/47315479/81145216-7fbd8700-8f7e-11ea-9d49-bd5fb4a888f1.png")
           }
           alt="No image found"
-          key={wizardArray.image}
+          key={wizardArray?.image}
         ></img>
         <table>
           <tbody>
             <tr>
               <td>Name</td>
-              <td>{wizardArray.name}</td>
+              <td>{wizardArray?.name}</td>
             </tr>
             <tr>
               <td>Species</td>
-              <td>{wizardArray.species}</td>
+              <td>{wizardArray?.species}</td>
             </tr>
             <tr>
               <td>Gender</td>
-              <td>{wizardArray.gender}</td>
+              <td>{wizardArray?.gender}</td>
             </tr>
             <tr>
               <td>House</td>
-              <td>{wizardArray.house}</td>
+              <td>{wizardArray?.house}</td>
             </tr>
             <tr>
               <td>Date of Birth</td>
-              <td>{wizardArray.dateOfBirth}</td>
+              <td>{wizardArray?.dateOfBirth}</td>
             </tr>
             <tr>
               <td>Ancestry</td>
-              <td>{wizardArray.ancestry}</td>
+              <td>{wizardArray?.ancestry}</td>
             </tr>
             <tr>
               <td>Patronus</td>
-              <td>{wizardArray.patronus}</td>
+              <td>{wizardArray?.patronus}</td>
             </tr>
           </tbody>
         </table>

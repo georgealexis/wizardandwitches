@@ -55,7 +55,7 @@ function Spells() {
         </ul>
         <div id="descriptionOfSpells">
           <h4>Description</h4>
-          <p>{spellDetails.description}</p>
+          <p>{spellDetails ? spellDetails.description : "No Such Spell"}</p>
         </div>
       </div>
     </>

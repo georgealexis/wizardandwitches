@@ -6,85 +6,99 @@ function Wizardkind() {
   const [wizard, setWizard] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [wizardArray, setWizardArray] = useState([]);
-
-  const filterWizard = (event) => {
-    return console.log(event.target.name);
-  };
-
-  const searchWizard = (event) => {
-    event.preventDefault();
-    setModalIsOpen(true);
-
-    // console.log(event.target[0].value);
-    // console.log(wizard);
-
-    const filteredWizard = wizard.filter((wizard) => {
-      return wizard.name.toLowerCase() === event.target[0].value.toLowerCase();
-    });
-    console.log(filteredWizard[0]);
-    setWizardArray(filteredWizard[0]);
-  };
+  const [query, setQuery] = useState("");
+  const [house, setHouse] = useState("");
 
   useEffect(() => {
-    fetch("https://hp-api.herokuapp.com/api/characters")
+    fetch(`https://hp-api.herokuapp.com/api/characters${house}`)
       .then((response) => response.json())
       .then((data) => setWizard(data));
-  }, []);
+  }, [house]);
+
+  const filterWizard = (event) => {
+    setHouse(`/house/${event.target.name}`);
+  };
+
+  const filterAllWizard = () => {
+    return setHouse("");
+  };
 
   const showWizardDetailsTrue = (event) => {
     setModalIsOpen(true);
     const selectedWizardArray = wizard.find((wizard) => {
       return wizard.name === event.target.value;
     });
-    console.log(selectedWizardArray);
     setWizardArray(selectedWizardArray);
   };
 
-  const showWizardDetailsFalse = () => {
-    setModalIsOpen(false);
+  const filterByName = (wizardname) => {
+    if (query === "") {
+      return wizardname;
+    } else if (wizardname.name.toLowerCase().includes(query.toLowerCase())) {
+      return wizardname;
+    }
   };
+
+  const result = wizard.filter(filterByName);
+
+  let resultwizard;
+
+  if (result.length === 0) {
+    resultwizard = <h3>no such wizard ...</h3>;
+  } else {
+    resultwizard = result.map((wizard, index) => (
+      <div className="grid-item" key={index}>
+        <img
+          className="wizardimage"
+          src={wizard.image}
+          onError={(e) =>
+            (e.target.src =
+              "https://user-images.githubusercontent.com/47315479/81145216-7fbd8700-8f7e-11ea-9d49-bd5fb4a888f1.png")
+          }
+          alt="No Image Found"
+          key={wizard.image}
+        ></img>
+        <br></br>
+        <button
+          className="wizardName"
+          key={wizard.name}
+          onClick={showWizardDetailsTrue}
+          value={wizard.name}
+        >
+          {wizard.name}
+        </button>
+      </div>
+    ));
+  }
+
   return (
     <>
       <h2 id="wizards"> Wizardkind: Wizards & Witches </h2>
       <Navbar />
-      <label>Gryffindor:</label>
-      <input type="checkbox" onClick={filterWizard} label="Gryffindor"></input>
-      <label>Hufflepuff:</label>
-      <input type="checkbox" onClick={filterWizard} name="Hufflepuff"></input>
-      <label>Ravenclaw:</label>
-      <input type="checkbox" onClick={filterWizard} name="Ravenclaw"></input>
-      <label>Slytherin:</label>
-      <input type="checkbox" onClick={filterWizard} name="Slytherin"></input>
-      <form onSubmit={searchWizard}>
-        <input type="search" placeholder="Searching for ..." name=""></input>
-        <button> Search</button>
-      </form>
+      <button onClick={filterAllWizard} name="">
+        All
+      </button>
+      <button onClick={filterWizard} name="Gryffindor">
+        Gryffindor
+      </button>
+      <button onClick={filterWizard} name="Hufflepuff">
+        Hufflepuff
+      </button>
+      <button onClick={filterWizard} name="Ravenclaw">
+        Ravenclaw
+      </button>
+      <button onClick={filterWizard} name="Slytherin">
+        Slytherin
+      </button>
+      <div>
+        <input
+          placeholder="Searching for ..."
+          name=""
+          onChange={(event) => setQuery(event.target.value)}
+        ></input>
+      </div>
       <div id="listofwizards">
-        <div>
-          {wizard.map((wizard, index) => (
-            <div id="wizardrow" key={index}>
-              <img
-                className="wizardimage"
-                src={wizard.image}
-                onError={(e) =>
-                  (e.target.src =
-                    "https://user-images.githubusercontent.com/47315479/81145216-7fbd8700-8f7e-11ea-9d49-bd5fb4a888f1.png")
-                }
-                alt="No Image Found"
-                key={wizard.image}
-              ></img>
-              <br></br>
-              <button
-                className="wizardName"
-                key={wizard.name}
-                onClick={showWizardDetailsTrue}
-                value={wizard.name}
-              >
-                {wizard.name}
-              </button>
-            </div>
-          ))}
-        </div>
+        <div className="grid-container">{resultwizard}</div>
       </div>
 
       {}
@@ -96,9 +110,6 @@ function Wizardkind() {
         onRequestClose={() => setModalIsOpen(false)}
       >
         <img src="" alt="No Wizard Found"></img>
-        <button id="modalbutton" onClick={showWizardDetailsFalse}>
-          x
-        </button>
       </ReactModal>
 
       <ReactModal
@@ -122,37 +133,34 @@ function Wizardkind() {
           <tbody>
             <tr>
               <td>Name</td>
-              <td>{wizardArray?.name}</td>
+              <td>{wizardArray.name}</td>
             </tr>
             <tr>
               <td>Species</td>
-              <td>{wizardArray?.species}</td>
+              <td>{wizardArray.species}</td>
             </tr>
             <tr>
               <td>Gender</td>
-              <td>{wizardArray?.gender}</td>
+              <td>{wizardArray.gender}</td>
             </tr>
             <tr>
               <td>House</td>
-              <td>{wizardArray?.house}</td>
+              <td>{wizardArray.house}</td>
             </tr>
             <tr>
               <td>Date of Birth</td>
-              <td>{wizardArray?.dateOfBirth}</td>
+              <td>{wizardArray.dateOfBirth}</td>
             </tr>
             <tr>
               <td>Ancestry</td>
-              <td>{wizardArray?.ancestry}</td>
+              <td>{wizardArray.ancestry}</td>
             </tr>
             <tr>
               <td>Patronus</td>
-              <td>{wizardArray?.patronus}</td>
+              <td>{wizardArray.patronus}</td>
             </tr>
           </tbody>
         </table>
-        <button id="modalbutton" onClick={showWizardDetailsFalse}>
-          x
-        </button>
       </ReactModal>
     </>
   );

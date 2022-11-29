@@ -4,13 +4,22 @@ import React, { useState, useEffect } from "react";
 function Spells() {
   const [spells, setSpells] = useState([]);
   const [spellDetails, setSpellDetails] = useState([]);
-  // const [searchingSpellName, setSearchingSpellName] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetch("https://hp-api.herokuapp.com/api/spells")
       .then((response) => response.json())
       .then((data) => setSpells(data));
   }, []);
+
+  const handleClick = (event) => {
+    showSpellDetails(event.target.value);
+  };
+
+  const handleChange = (event) => {
+    setSpellDetails([]);
+    setQuery(event.target.value);
+  };
 
   const showSpellDetails = (value) => {
     const selectedSpell = spells.find((spell) => {
@@ -20,42 +29,43 @@ function Spells() {
     setSpellDetails(selectedSpell);
   };
 
-  const searchSpell = (event) => {
-    event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(spells);
-
-    let filteredSpell = spells.filter((spell) => {
-      return spell.name.toLowerCase() === event.target[0].value.toLowerCase();
-    });
-    console.log(filteredSpell);
-    setSpellDetails(filteredSpell[0]);
+  const filterByName = (spellname) => {
+    if (query === "") {
+      return spellname;
+    } else if (spellname.name.toLowerCase().includes(query.toLowerCase())) {
+      return spellname;
+    }
   };
+
+  const result = spells.filter(filterByName);
+
+  let resultspells;
+
+  if (result.length === 0) {
+    resultspells = <button>no such spell</button>;
+  } else {
+    resultspells = result.map((spell) => (
+      <button
+        className="spellName"
+        key={spell.name}
+        onClick={handleClick}
+        value={spell.name}
+      >
+        {spell.name}
+      </button>
+    ));
+  }
 
   return (
     <>
       <h2 id="spells">Books of Spells</h2>
       <Navbar />
-      <form onSubmit={searchSpell}>
-        <input type="search" placeholder="Searching for ..."></input>
-        <button> Search</button>
-      </form>
+      <input placeholder="Searching for ..." onChange={handleChange}></input>
       <div id="listofspells">
-        <ul>
-          {spells.map((spell) => (
-            <button
-              className="spellName"
-              key={spell.name}
-              onClick={(event) => showSpellDetails(event.target.value)}
-              value={spell.name}
-            >
-              {spell.name}
-            </button>
-          ))}
-        </ul>
+        <ul>{resultspells}</ul>
         <div id="descriptionOfSpells">
           <h4>Description</h4>
-          <p>{spellDetails ? spellDetails.description : "No Such Spell"}</p>
+          <p>{spellDetails.description}</p>
         </div>
       </div>
     </>

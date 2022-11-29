@@ -109,7 +109,7 @@ button {
   color: azure;
   padding: 10px;
   border: 2px solid aliceblue;
-  margin-top: 20px;
+  margin: 20px auto 10px auto;
 }
 
 #listofspells {
@@ -124,6 +124,14 @@ button {
   border: 5px solid azure;
   margin: 20px auto auto auto;
   height: fit-content;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 50px;
+  row-gap: 50px;
+  padding: 20px;
 }
 
 .spellName,
@@ -164,8 +172,8 @@ p {
 .wizardimage {
   border: 2px solid azure;
   border-radius: 50%;
-  height: 120px;
-  width: auto;
+  height: 175px;
+  width: 150px;
   margin: 5px;
 }
 
@@ -177,14 +185,9 @@ p {
   padding: 10px;
 }
 
-#wizardrow {
-  display: inline-block;
-  margin: 10px;
-}
-
 .modaloverlay {
   border: 5px solid gray;
-  width: 900px;
+  width: 500px;
   height: 800px;
   margin: 50px auto;
   background-color: black;
@@ -194,20 +197,6 @@ p {
 table {
   border: 1px solid azure;
   margin: auto;
-}
-
-#modalbutton {
-  border: 2px solid grey;
-  width: 50px;
-  height: 50px;
-  padding: auto;
-  border-radius: 50%;
-  font-size: 20px;
-  background-color: whitesmoke;
-  color: black;
-  position: absolute;
-  top: 50px;
-  left: 525px;
 }
 
 .enrollinput {

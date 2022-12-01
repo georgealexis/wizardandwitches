@@ -1,5 +1,4 @@
 import { useState, useEffect, React } from "react";
-import ReactModal from "react-modal";
 import Navbar from "../Navbar/Navbar";
 
 function Wizardkind() {

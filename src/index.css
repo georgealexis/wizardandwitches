@@ -21,7 +21,7 @@ h1 {
 
 #navBar {
   padding: 20px;
-  width: 900px;
+  width: fit-content;
   margin: auto;
   border: 10px solid azure;
 }
@@ -47,8 +47,8 @@ h3 {
 .logobox {
   margin: auto;
   padding: 20px;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
 }
 
 .logobox img {
@@ -65,30 +65,34 @@ h3 {
 }
 
 .houseDetails {
-  margin: 150px auto auto auto;
-  width: 900px;
+  margin: 100px auto auto auto;
+  width: 1000px;
   font-size: 25px;
+  padding: 10px;
 }
 
-#slytherin {
+.details {
+  margin: 10px;
+}
+#Slytherin {
   color: rgb(11, 172, 84);
   border: 5px solid;
   border-color: rgb(11, 172, 84);
 }
 
-#hufflepuff {
+#Hufflepuff {
   color: rgb(205, 163, 26);
   border: 5px solid;
   border-color: rgb(205, 163, 26);
 }
 
-#ravenclaw {
+#Ravenclaw {
   color: rgb(5, 34, 225);
   border: 5px solid;
   border-color: rgb(5, 34, 225);
 }
 
-#gryffindor {
+#Gryffindor {
   color: rgb(231, 30, 30);
   border: 5px solid;
   border-color: rgb(231, 30, 30);
@@ -112,7 +116,8 @@ button {
   margin: 20px auto 10px auto;
 }
 
-#listofspells {
+#listofspells,
+#listofspecies {
   width: 900px;
   border: 5px solid azure;
   margin: 20px auto auto auto;
@@ -135,7 +140,8 @@ button {
 }
 
 .spellName,
-.wizardName {
+.wizardName,
+.speciesName {
   display: inline-block;
   border: 2px solid azure;
   padding: 5px;
@@ -193,6 +199,15 @@ p {
   background-color: black;
   font-size: 20px;
 }
+.modalregister {
+  border: 5px solid gray;
+  width: 750px;
+  height: 850px;
+  margin: 30px auto;
+  background-color: black;
+  font-size: 20px;
+  padding: 20px;
+}
 
 table {
   border: 1px solid azure;
@@ -204,6 +219,7 @@ table {
   width: 300px;
   height: 50px;
   font-size: 30px;
+  font-family: "Cinzel Decorative", cursive;
 }
 
 option {
@@ -226,4 +242,11 @@ label {
   margin: 20px;
   width: 45%;
   height: 400px;
+}
+
+.speciesbox {
+  border: 5px solid aliceblue;
+  margin: 20px;
+  padding: 10px;
+  height: 50vh;
 }

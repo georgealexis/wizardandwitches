@@ -15,6 +15,9 @@ function Navbar() {
       <NavLink to="/Houses" as={NavLink}>
         Houses
       </NavLink>
+      <NavLink to="/Species" as={NavLink}>
+        Species
+      </NavLink>
     </nav>
   );
 }

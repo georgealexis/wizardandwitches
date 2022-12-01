@@ -6,10 +6,18 @@ import HogwartsLogo from "../Images/HogwartsLogo.png";
 function Registration() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [name, setName] = useState("");
+  const [species, setSpecies] = useState("");
+  const [gender, setGender] = useState("");
+  const [dob, setDob] = useState("");
+  const [ancestry, setAncestry] = useState("");
 
   const RegisteredTrue = (event) => {
     event.preventDefault();
     setName(event.target[0].value);
+    setSpecies(event.target[1].value);
+    setGender(event.target[2].value);
+    setDob(event.target[3].value);
+    setAncestry(event.target[4].value);
     setModalIsOpen(true);
   };
 
@@ -44,7 +52,16 @@ function Registration() {
             <tr>
               <td>Species:</td>
               <td className="enrolldata">
-                <input className="enrollinput" type="text"></input>
+                <select className="enrollinput">
+                  <option value="Human">Human</option>
+                  <option value="Giant">Giants</option>
+                  <option value="Goblin">Goblins</option>
+                  <option value="Vampire">Vampires</option>
+                  <option value="Hag">Hags</option>
+                  <option value="Elf">Elves</option>
+                  <option value="Veela">Veela</option>
+                  <option value="Merpeople">Merpeople</option>
+                </select>
               </td>
             </tr>
             <tr>
@@ -77,7 +94,7 @@ function Registration() {
         <button>Register</button>
       </form>
       <ReactModal
-        className="modaloverlay"
+        className="modalregister"
         isOpen={modalIsOpen}
         ariaHideApp={false}
         onRequestClose={() => setModalIsOpen(false)}
@@ -86,14 +103,15 @@ function Registration() {
         <h4>HOGWARTS SCHOOL of WITCHCRAFT and WIZARDRY</h4>
         <p>Dear {name} , </p>
         <p>
-          We are pleased to inform you that you have been accepted at Hogwarts
-          School of Witchcraft and Wizardry. Please find enclosed a list of all
-          necessary books and equipment. Term begins on 1 September. We await
-          your owl by no later than 31 July.
+          A {ancestry} {species} {gender}, born on {dob}, We are pleased to
+          inform you that you have been accepted at Hogwarts School of
+          Witchcraft and Wizardry. Please find enclosed a list of all necessary
+          books and equipment. Term begins on 1 September. We await your owl by
+          no later than 31 July.
         </p>
         <p> Yours sincerely, </p>
-        <p> Minerva McGonagall </p>
-        <p> Deputy Headmistress </p>
+        <p> George Alexis </p>
+        <p> Deputy Headmaster </p>
       </ReactModal>
     </>
   );

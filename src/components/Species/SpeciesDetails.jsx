@@ -1,4 +1,3 @@
-import { elementTypeAcceptingRef } from "@mui/utils";
 import { useState, useEffect } from "react";
 
 function SpeciesDetails({ speciesDetails, id }) {

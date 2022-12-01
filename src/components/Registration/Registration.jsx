@@ -83,9 +83,9 @@ function Registration() {
               <td>Ancestry:</td>
               <td className="enrolldata">
                 <select className="enrollinput">
-                  <option value="Pure">Pure-Blood</option>
-                  <option value="Half">Half-Blood</option>
-                  <option value="Muggle">Muggleborn</option>
+                  <option value="Pure-Blood">Pure-Blood</option>
+                  <option value="Half-Blood">Half-Blood</option>
+                  <option value="Muggleborn">Muggleborn</option>
                 </select>
               </td>
             </tr>

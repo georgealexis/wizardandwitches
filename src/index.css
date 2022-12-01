@@ -1,4 +1,5 @@
 body {
+  background-image: url("https://cdn.mos.cms.futurecdn.net/BfemybeKVXCf9pgX9WCxsc-970-80.jpg.webp");
   background-color: black;
   text-align: center;
   font-family: "Cinzel Decorative", cursive;
@@ -40,15 +41,15 @@ h2 {
 }
 
 h3 {
-  font-size: 50px;
+  font-size: 70px;
   margin: 10px;
 }
 
 .logobox {
   margin: auto;
   padding: 20px;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
 }
 
 .logobox img {
@@ -58,10 +59,13 @@ h3 {
 
 .houses {
   display: inline-block;
-  font-size: 30px;
-  margin: 10px;
+  margin: 20px;
   padding: 7px;
   cursor: pointer;
+}
+
+.houses button {
+  font-size: 50px;
 }
 
 .houseDetails {
@@ -118,14 +122,14 @@ button {
 
 #listofspells,
 #listofspecies {
-  width: 900px;
+  width: 60%;
   border: 5px solid azure;
   margin: 20px auto auto auto;
   height: 750px;
 }
 
 #listofwizards {
-  width: 975px;
+  width: 50%;
   border: 5px solid azure;
   margin: 20px auto auto auto;
   height: fit-content;
@@ -134,20 +138,34 @@ button {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  column-gap: 50px;
-  row-gap: 50px;
-  padding: 20px;
+  column-gap: 10px;
+  row-gap: 75px;
+  padding: 10px;
+  height: 1800px;
+  width: ;
+}
+
+.grid-item {
+  width: 200px;
+  height: 200px;
+}
+
+.wizardName {
+  display: inline-block;
+  border: 2px solid azure;
+  padding: 5px;
+  margin: 2px;
+  font-size: 15px;
 }
 
 .spellName,
-.wizardName,
 .speciesName {
   display: inline-block;
   border: 2px solid azure;
   padding: 5px;
   margin: 2px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
 }
 .spellName:hover {
   background-color: lightskyblue;
@@ -245,8 +263,17 @@ label {
 }
 
 .speciesbox {
-  border: 5px solid aliceblue;
-  margin: 20px;
-  padding: 10px;
-  height: 50vh;
+  margin: 50px;
+  height: fit-content;
+  text-align: start;
+}
+
+#speciestable {
+  font-size: 25px;
+  height: 500px;
+  width: 100%;
+}
+
+th {
+  font-size: 70px;
 }

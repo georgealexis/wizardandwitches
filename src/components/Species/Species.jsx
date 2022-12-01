@@ -5,6 +5,7 @@ import SpeciesDetails from "./SpeciesDetails";
 function Species({ callback }) {
   const [species, setSpecies] = useState([]);
   const [speciesDetails, setSpeciesDetails] = useState([]);
+  const [speciesId, setSpeciesId] = useState("");
 
   useEffect(() => {
     fetch(`https://legacy--api.herokuapp.com/api/v1/species`)
@@ -13,6 +14,7 @@ function Species({ callback }) {
   }, []);
 
   const handleClick = (event) => {
+    setSpeciesId(event.target.name);
     showSpeciesDetails(event.target.value);
   };
 
@@ -34,11 +36,12 @@ function Species({ callback }) {
             key={species.id}
             onClick={handleClick}
             value={species.name}
+            name={species.id}
           >
             {species.name}
           </button>
         ))}
-        <SpeciesDetails speciesDetails={speciesDetails} />
+        <SpeciesDetails speciesDetails={speciesDetails} id={speciesId} />
       </div>
     </>
   );
